@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Calculator | Math Tutoring</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700;800;900&display=swap');
+
+:root{
+  --red:#ed1c24; --blue:#1769d1; --yellow:#ffd21c; --navy:#101b3a;
+  --cream:#fff8df; --ink:#11131a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Nunito,Arial,sans-serif}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.09;background-image:radial-gradient(#111 1px,transparent 1px);background-size:7px 7px;z-index:20}
+nav{position:sticky;top:0;z-index:10;background:var(--yellow);border-bottom:4px solid var(--ink);padding:13px 6%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:Bangers,cursive;font-size:31px;letter-spacing:1px;color:var(--red);text-shadow:2px 2px 0 var(--ink)}
+nav a{font-weight:900;color:var(--ink);text-decoration:none;border:3px solid var(--ink);background:white;padding:8px 14px;transform:rotate(-1deg);box-shadow:3px 3px 0 var(--ink)}
+.hero{background:var(--blue);border-bottom:5px solid var(--ink);position:relative;overflow:hidden;padding:70px 6% 85px}
+.hero:after{content:"";position:absolute;width:600px;height:600px;border-radius:50%;right:-170px;top:-260px;background:var(--red);border:5px solid var(--ink)}
+.hero-inner{max-width:1100px;margin:auto;position:relative;z-index:2}
+.kicker{display:inline-block;background:var(--yellow);border:4px solid var(--ink);padding:7px 15px;font-weight:900;transform:rotate(-2deg);box-shadow:5px 5px 0 var(--ink)}
+h1{font-family:Bangers,cursive;color:#fff;font-size:clamp(72px,12vw,145px);line-height:.85;letter-spacing:3px;margin:25px 0 18px;text-shadow:7px 7px 0 var(--ink);max-width:800px}
+.hero-copy{background:white;border:4px solid var(--ink);padding:16px 20px;max-width:620px;font-size:20px;font-weight:800;box-shadow:7px 7px 0 var(--ink);transform:rotate(1deg)}
+.btn{display:inline-block;margin-top:30px;background:var(--red);color:white;border:4px solid var(--ink);padding:14px 22px;font-weight:900;text-decoration:none;box-shadow:6px 6px 0 var(--ink);font-size:18px}
+section{padding:75px 6%}.wrap{max-width:1100px;margin:auto}
+.section-head{display:flex;align-items:end;gap:18px;margin-bottom:35px}
+h2{font-family:Bangers,cursive;font-size:54px;letter-spacing:2px;margin:0;color:var(--blue);text-shadow:3px 3px 0 var(--ink)}
+.section-head p{font-weight:800;margin:0 0 7px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.panel{background:white;border:4px solid var(--ink);padding:27px;box-shadow:7px 7px 0 var(--ink);position:relative}
+.panel:nth-child(even){transform:rotate(1deg)}.panel:nth-child(odd){transform:rotate(-1deg)}
+.panel .icon{font-size:34px;margin-bottom:8px}.panel h3{font-family:Bangers,cursive;font-size:30px;letter-spacing:1px;margin:0 0 5px;color:var(--red)}.panel p{font-weight:700;margin:0;color:#333}
+.cred{background:var(--navy);color:white;border-top:5px solid var(--ink);border-bottom:5px solid var(--ink)}
+.cred h2{color:var(--yellow);text-shadow:3px 3px 0 #000}.cred-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cred .panel{background:var(--yellow);color:var(--ink)}.cred .panel h3{color:var(--ink)}
+.quote{margin:45px auto 0;max-width:760px;text-align:center;font-family:Bangers,cursive;font-size:34px;letter-spacing:1px;color:white}
+.price-wrap{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:stretch}
+.price{background:var(--red);color:#fff;border:5px solid var(--ink);padding:35px;box-shadow:9px 9px 0 var(--ink);transform:rotate(-1deg)}
+.price h3{font-family:Bangers,cursive;font-size:45px;margin:0}.amount{font-size:60px;font-weight:900}.details{background:white;border:4px solid var(--ink);padding:30px;box-shadow:7px 7px 0 var(--ink)}
+.details li{margin:13px 0;font-weight:800}
+.cta{background:var(--yellow);border:5px solid var(--ink);padding:45px;text-align:center;box-shadow:10px 10px 0 var(--ink)}
+.cta h2{color:var(--red);font-size:64px}
+.cta p{font-size:19px;font-weight:800;max-width:650px;margin:10px auto}
+footer{text-align:center;padding:35px;font-weight:800}
+@media(max-width:760px){
+ nav{padding:11px 4%}.logo{font-size:25px}nav a{font-size:13px}
+ .hero{padding:55px 5% 65px}.hero:after{right:-330px}
+ h1{font-size:78px}.hero-copy{font-size:17px}
+ section{padding:55px 5%}.grid,.cred-grid,.price-wrap{grid-template-columns:1fr}
+ .section-head{display:block}.section-head p{margin-top:6px}
+ .cta{padding:32px 20px}.cta h2{font-size:48px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">THE CALCULATOR</div>
+  <a href="#contact">GET STARTED</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">GRADES 2–6 • 1-ON-1 MATH TUTORING</div>
+    <h1>MATH IS<br>A SUPERPOWER.</h1>
+    <div class="hero-copy">Meet <strong>The Calculator</strong> — Brendyn Capulong. Math tutoring that makes confusing problems easier to understand, one step at a time.</div>
+    <a class="btn" href="#contact">LEVEL UP YOUR MATH →</a>
+  </div>
+</header>
+
+<section>
+<div class="wrap">
+  <div class="section-head"><h2>POW! WHAT I HELP WITH</h2><p>No boring lectures. Just clear explanations and practice.</p></div>
+  <div class="grid">
+    <div class="panel"><div class="icon">➗</div><h3>Fractions & Decimals</h3><p>Build confidence with fractions, decimals, percentages, and ratios.</p></div>
+    <div class="panel"><div class="icon">✖️</div><h3>Arithmetic</h3><p>Get stronger at the fundamentals: addition, subtraction, multiplication, division, and problem solving.</p></div>
+    <div class="panel"><div class="icon">📐</div><h3>Geometry</h3><p>Area, perimeter, angles, shapes, measurement, and other core geometry skills.</p></div>
+    <div class="panel"><div class="icon">⚡</div><h3>Homework Help</h3><p>Work through tricky assignments while learning how to solve the next one independently.</p></div>
+  </div>
+</div>
+</section>
+
+<section class="cred">
+<div class="wrap">
+  <div class="section-head"><h2>THE CALCULATOR'S CREDENTIALS</h2></div>
+  <div class="cred-grid">
+    <div class="panel"><h3>HIGH HONOR ROLL</h3><p>Every semester since starting middle school.</p></div>
+    <div class="panel"><h3>STRAIGHT A'S</h3><p>Consistently maintains straight A's across classes.</p></div>
+    <div class="panel"><h3>HONORS MATH 1</h3><p>Currently learning Math 1 at an advanced level in 8th grade.</p></div>
+  </div>
+  <div class="quote">“THE GOAL ISN'T JUST GETTING THE ANSWER. IT'S KNOWING WHY THE ANSWER WORKS.”</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+  <div class="section-head"><h2>WHY KIDS LIKE IT</h2></div>
+  <div class="grid">
+    <div class="panel"><h3>BIG PROBLEMS → SMALL STEPS</h3><p>Complicated questions get broken into steps that actually make sense.</p></div>
+    <div class="panel"><h3>ASK ANYTHING</h3><p>Questions are encouraged. The goal is understanding, not pretending you already know.</p></div>
+    <div class="panel"><h3>CONFIDENCE BUILDER</h3><p>Practice turns “I can't do this” into “I know what to do next.”</p></div>
+    <div class="panel"><h3>PERSONALIZED HELP</h3><p>Sessions focus on the student's current classwork, questions, and skill gaps.</p></div>
+  </div>
+</div>
+</section>
+
+<section style="background:#1769d1;border-top:5px solid #11131a;border-bottom:5px solid #11131a">
+<div class="wrap">
+  <div class="section-head"><h2 style="color:#ffd21c;text-shadow:3px 3px 0 #111">THE MISSION</h2></div>
+  <div class="price-wrap">
+    <div class="price"><h3>ONE HOUR.</h3><div class="amount">$15</div><div style="font-size:20px;font-weight:900">per tutoring session</div></div>
+    <div class="details">
+      <ul>
+        <li>Grades 2–6</li>
+        <li>1-on-1 math tutoring</li>
+        <li>Local / in-person</li>
+        <li>Flexible scheduling</li>
+        <li>Single or recurring sessions</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="contact">
+<div class="wrap">
+  <div class="cta">
+    <h2>READY TO LEVEL UP?</h2>
+    <p>Have a parent or guardian reach out to request a session. Scheduling and communication are handled through a parent or guardian.</p>
+    <a class="btn" href="mailto:YOUR_PARENT_EMAIL@example.com?subject=The%20Calculator%20Tutoring%20Request">REQUEST A SESSION →</a>
+  </div>
+</div>
+</section>
+
+<footer>THE CALCULATOR • BREN DYN CAPULONG • MATH MADE SIMPLER.</footer>
+</body>
+</html>
